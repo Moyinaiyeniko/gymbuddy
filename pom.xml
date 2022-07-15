@@ -68,35 +68,46 @@
       <plugin> 
         <groupId>org.springframework.boot</groupId>  
         <artifactId>spring-boot-maven-plugin</artifactId> 
-      </plugin>  
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.14.0</version>
-        <configuration>
-          <schemaVersion>v2</schemaVersion>
-          <subscriptionId>247bf2fa-c38d-4fac-9766-955a5969e516</subscriptionId>
-          <resourceGroup>gym-buddy-1639136431036-rg</resourceGroup>
-          <appName>gym-buddy-1639136431036</appName>
-          <pricingTier>P1v2</pricingTier>
-          <region>westeurope</region>
-          <runtime>
-            <os>Linux</os>
-            <javaVersion>Java 8</javaVersion>
-            <webContainer>Java SE</webContainer>
-          </runtime>
-          <deployment>
-            <resources>
-              <resource>
-                <directory>${project.basedir}/target</directory>
-                <includes>
-                  <include>*.jar</include>
-                </includes>
-              </resource>
-            </resources>
-          </deployment>
-        </configuration>
       </plugin>
+<!--      <plugin>-->
+<!--      <plugin>-->
+<!--        <groupId>com.microsoft.azure</groupId>-->
+<!--        <artifactId>azure-webapp-maven-plugin</artifactId>-->
+<!--        <version>1.14.0</version>-->
+<!--        <configuration>-->
+<!--          <schemaVersion>v2</schemaVersion>-->
+<!--          <subscriptionId>247bf2fa-c38d-4fac-9766-955a5969e516</subscriptionId>-->
+<!--          <resourceGroup>gym-buddy-1639136431036-rg</resourceGroup>-->
+<!--          <appName>gym-buddy-1639136431036</appName>-->
+<!--          <pricingTier>P1v2</pricingTier>-->
+<!--          <region>westeurope</region>-->
+<!--          <runtime>-->
+<!--            <os>Linux</os>-->
+<!--            <javaVersion>Java 8</javaVersion>-->
+<!--            <webContainer>Java SE</webContainer>-->
+<!--          </runtime>-->
+<!--          <deployment>-->
+<!--            <resources>-->
+<!--              <resource>-->
+<!--                <directory>${project.basedir}/target</directory>-->
+<!--                <includes>-->
+<!--                  <include>*.jar</include>-->
+<!--                </includes>-->
+<!--              </resource>-->
+<!--            </resources>-->
+<!--          </deployment>-->
+<!--        </configuration>-->
+
     </plugins> 
-  </build> 
+  </build>
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <properties>
+        <spring.profiles.active>
+          dev
+        </spring.profiles.active>
+      </properties>
+    </profile>
+  </profiles>
 </project>
